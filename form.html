@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" autofocus>
+    <p id = num1 style="color: red;"></p><br>
+
+    <label for="email">email:</label><br>
+     <input type="email" id="email" name="email" autofocus>
+     <p id = mail style = "color: red;"></p>
+
+     <label for="password">Password:</label><br>
+     <input type="password" id="pwd" name="pwd" autofocus><br>
+     <p id = iq1 style="color: red;"></p>
+
+     <label for="cpassword">Confirm Password:</label><br>
+     <input type="password" id="cpwd" name="cpwd" autofocus><br>
+     <p id = iq2 style="color: red;"></p> 
+
+      <label>Gender</label><br>
+     <input type="radio" id="male" name="radio" value="MALE">
+     <label for="male">MALE</label><br>
+     <input type="radio" id="female" name="radio" value="FEMALE">
+     <label for="female">FEMALE</label>
+     <p id = rad style="color: red;"></p>
+
+     <label>Known Languages</label><br>
+     <input type="checkbox" id="Tamil" name="checkbox" value="TAMIL">
+     <label for="Tamil">Tamil</label><br>
+     <input type="checkbox" id="English" name="checkbox" value="ENGLISH">
+     <label for="English">English</label><br>
+     <input type="checkbox" id="Hindi" name="checkbox" value="HINDI">
+     <label for="Hindi">Hindi</label>
+     <p id = box style="color: red;"></p>
+
+
+     <label>Date of Birth :</label>
+     <input type="date" id="date" name="datemax"><br><br>
+
+     <label>Address:</label><br>
+     <textarea id="address" rows="7" cols="50"></textarea><br>
+
+     <select id="select">
+        <option value="">Choose</option>
+        <option value="option1">Option1</option>
+        <option value="option2">Option2</option>
+        <option value="option3">Option3</option>
+        </select>
+                     
+     <button type="submit" onclick="myfunction()">Submit</button>
+      
+
+<script>
+        function myfunction(){
+
+let name=document.getElementById('fname').value
+ let patterns = /^[a-zA-Z ]{2,30}$/;
+
+if (name == "")
+{
+    document.getElementById("num1").innerHTML="enter your name"
+}
+else if(!patterns.test(name)){
+    document.getElementById("num1").innerHTML="enter a valid name"
+}
+else{
+    document.getElementById("num1").innerHTML=""
+}
+// --------------------------------  next section ------------------------------------
+
+let mail = document.getElementById('email').value
+let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+if(mail == "")
+{
+    document.getElementById("mail").innerHTML="enter your mail"
+}
+else if(!pattern.test(mail)){
+    document.getElementById("mail").innerHTML="enter a valid mail"
+}
+else{
+    document.getElementById("mail").innerHTML=""
+}
+
+// --------------------------------  next section ------------------------------------
+let password = document.getElementById('pwd').value
+let p = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(password == "")
+{
+    document.getElementById("iq1").innerHTML="enter your password"
+}
+else if(!p.test(password)){
+    document.getElementById("iq1").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("iq1").innerHTML=""
+}
+// --------------------------------  next section ------------------------------------
+let  cpassword = document.getElementById('cpwd').value
+let p1 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+if(cpassword == "")
+{
+    document.getElementById("iq2").innerHTML="confirm your password"
+}
+else if(password != cpassword){
+    document.getElementById("iq2").innerHTML="enter your correct password"
+}
+else{
+    document.getElementById("iq2").innerHTML=""
+}
+// --------------------------------  next section ------------------------------------
+if(male.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else if(female.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else{
+    document.getElementById("rad").innerHTML="choose any one of the option"
+}
+//------------------------------- next section------------------------------------
+
+if(male.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else if(female.checked){
+    document.getElementById("rad").innerHTML=""
+}
+else if(){
+    
+}
+else{
+    document.getElementById("rad").innerHTML="choose any one of the option"
+}
+}
+</body>
+</html>
