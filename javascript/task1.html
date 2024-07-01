@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button type="button" onclick="myfunction()">func</button>
+    <p id = "num"></p>
+    <p id = "num1"></p>
+    <p id = "num2"></p>
+    <p id = "num3"></p>
+    <p id = "date"></p>
+    <input type= "text" id="rev">
+    <!-- <input type = "text" id = "userinput" placeholder="type something"> 
+    another method of changing width according to value <label name="username">ENTER THE TEXT:</label>
+    <input type="text" id="textbox" name="textbox" onkeypress="style.width =((this.value.length + 2) * 4)+'px';"> -->
+</head>
+<body>
+    <script>
+        function myfunction(){
+        let string = document.getElementById("rev").value 
+        let reverse = "";
+        for( let i = string.length-1; i>=0 ; i--)
+        {
+            reverse += string[i];
+        }
+        console.log(reverse);
+    }
+    // ---------------------------------next section---------------------------------------
+    const a = [2,2,3,3,1,4,5];
+    const b = [7,6,6,8,9];
+    const c = a.concat(b);  // joining two arrays
+    document.getElementById("num").innerHTML = " "+c+ "/concatinated array/";
+     
+    function removeDuplicates(c) {
+    return [...new Set(c)]; //removing duplicates
+    }
+
+    document.getElementById("num1").innerHTML = removeDuplicates(c);
+
+     numbers = removeDuplicates(c);
+     numbers.sort();  // sorting the numbers
+     document.getElementById("num2").innerHTML = numbers;
+    
+     function addTwoFromCenter(numbers){
+     var middle = numbers[(numbers.length - 1) / 2];  // finding middle number in a array
+     document.getElementById("num3").innerHTML = middle;
+
+     for(let i = middle;i < numbers.length;  i++){
+        numbers[i] += 2;  // adding plus two after the center value
+     }
+     return numbers;
+  }
+      let curarray = [1,2,3,4,5,6,7,8,9];
+      let result =  addTwoFromCenter(curarray);//add function calls curarray to update the values to numbers in result
+      document.write(result);
+
+      //--------------------------------------next section----------------------------------------------
+     
+      const inputField = document.getElementById("userinput")
+       inputField.addEventListener('input',function(){
+        const inputLength = this.value.length; // here it assigns that length will change according to the value
+         this.style.color = (inputLength * 8) + 'px';
+       }
+    );
+    
+    // ----------------------------------------next section---------------------------------------------
+      var date = new Date();//if you print the date it will show you the current date and time
+      var currentDateTime = date.toLocaleString();
+      document.getElementById("date").innerHTML = currentDateTime;// this also almost same
+
+    // -----------------------------------------next section---------------------------------------------
+     let str1 = "sanjeev";
+    let str2 = "eevjans";
+    let len1 = str1.length;
+    let len2 = str2.length;
+    if(len1 != len2){
+        console.log("invalid");
+    }
+    let string1 = str1.split('').sort().join('');// after split o/p k,a,n - after sort o/p a,k,n - after join akn
+    let string2 = str2.split('').sort().join('');
+
+    if(string1 === string2){
+        console.log("true");
+    }
+    else{
+        console.log("false");
+    }
+    //------------------------------------------------------- next section-------------------------------
+       // closure program
+       function outer() {
+           function create_Closure(val) {
+            return function () {
+            return val;
+        }
+       }
+           let arr = [];
+           let i;
+          for (i = 0; i < 4; i++) {
+          arr[i] = create_Closure(i);
+       }
+          return arr;
+      }
+            let get_arr = outer();
+            console.log(get_arr[0]());
+            console.log(get_arr[1]());
+            console.log(get_arr[2]());
+            console.log(get_arr[3]());
+
+     // ----------------------------------------next section---------------------------------------------
+
+     //leapyear
+
+    function checkLeapYear(year){
+        if((0 == year % 4) && (0 != year % 100) || (0 == year % 400)){
+            console.log(year + " is a leap year");
+        }
+        else{
+            console.log(year + " is not a leap year");
+        }
+    }
+    const year = prompt("enter a year");
+        checkLeapYear(year);
+
+    //------------------------------------------next section ------------------------------------------------
+
+
+</script>
+
+</body>
+</html>

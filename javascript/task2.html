@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <p id="countdown"></p>
+    <p id = "num1"></p>
+    <p id = "url"></p>
+</head>
+<body>
+  
+    <script>
+  //        function separateLetters(str) {
+  //   let vowels = "";
+  //   let consonants = "";
+  //   for (let i = 0; i < str.length; i++) {
+  //     let letter = str[i].toLowerCase();
+  //     if ("aeiou".includes(letter)) {
+  //       vowels += letter;x
+
+
+  //     } else if (letter >= "a" && letter <= "z") {
+  //       consonants += letter;
+  //     }
+  //   }
+  //   return { vowels, consonants };
+  // }
+
+  // console.log(separateLetters("sanj is a good boy!")); 
+
+  // //------------------------------------------next section ------------------------------------------------
+
+  //      //comparing two dates
+  //      const d1 = new Date();
+  //      const d2 = new Date();
+
+  //      const compare1 = d1 > d2;
+  //      console.log(compare1);
+
+  //      const compare2 = d1 < d2;
+  //      console.log(compare2);
+
+  //      const compare3 = d1.getTime() === d2.getTime();
+  //      console.log(compare3);
+
+  //      const compare4 = d1.getTime() !== d2.getTime();
+  //      console.log(compare4);
+
+  //   // --------------------------------------next section--------------------------------------------------
+    
+  //      // countdown timer
+
+  //       var countDownDate = new Date("July 1, 2024 19:30:20").getTime();
+
+  //       var x = setInterval(function()  {
+  //         var now = new Date().getTime();
+  //         var distance = countDownDate - now;
+  //         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //         document.getElementById("countdown").innerHTML = days + "d" + hours + "h" + minutes + "m" + seconds + "s";
+
+  //         if(distance < 0){
+  //           clearInterval(x);
+  //           document.getElementById("countdown").innerHTML = "EXPIRED";
+  //         }
+  //       }, 1000);
+
+  //     //-------------------------------------------next section-------------------------------------------
+
+  //        //random number
+        
+  //         let r=Math.floor(Math.random()*50);
+  //         document.getElementById('num1').innerHTML="the random number is :"+ r;
+      
+  //     //------------------------------------------ next section -----------------------------------------
+      
+  //       document.getElementById("url").innerHTML = "URL of the page is : "  + window.location.href ;
+
+// program to implement stack data structure
+class Stack {
+    constructor() {
+        this.items = [];
+    }
+    
+    // add element to the stack
+    add(element) {
+        return this.items.push(element);
+    }
+    
+    // remove element from the stack
+    remove() {
+        if(this.items.length > 0) {
+            return this.items.pop();
+        }
+    }
+    
+    // view the last element
+    peek() {
+        return this.items[this.items.length - 1];
+    }
+    
+    // check if the stack is empty
+    isEmpty(){
+       return this.items.length == 0;
+    }
+   
+    // the size of the stack
+    size(){
+        return this.items.length;
+    }
+ 
+    // empty the stack
+    clear(){
+        this.items = [];
+    }
+}
+
+let stack = new Stack();
+stack.add(1);
+stack.add(2);
+stack.add(4);
+stack.add(8);
+console.log(stack.items);
+
+stack.remove();
+console.log(stack.items);
+
+console.log(stack.peek());
+
+console.log(stack.isEmpty());
+
+console.log(stack.size());
+
+stack.clear();
+console.log(stack.items);
+</script>
+</body>
+</html>
