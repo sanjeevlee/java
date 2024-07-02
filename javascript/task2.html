@@ -79,63 +79,57 @@
       
         document.getElementById("url").innerHTML = "URL of the page is : "  + window.location.href ;
 
-// program to implement stack data structure
-class Stack {
-    constructor() {
-        this.items = [];
-    }
-    
-    // add element to the stack
-    add(element) {
-        return this.items.push(element);
-    }
-    
-    // remove element from the stack
-    remove() {
-        if(this.items.length > 0) {
-            return this.items.pop();
+        function checkNumber(x){
+        if((typeof x == 'number' && !isNaN(9))){
+          if(Number.isInteger(x)){
+          console.log(`${x} is a number`);
         }
-    }
-    
-    // view the last element
-    peek() {
-        return this.items[this.items.length - 1];
-    }
-    
-    // check if the stack is empty
-    isEmpty(){
-       return this.items.length == 0;
-    }
-   
-    // the size of the stack
-    size(){
-        return this.items.length;
-    }
- 
-    // empty the stack
-    clear(){
-        this.items = [];
-    }
-}
+        else{
+          console.log(`${x} is a float`);
+        }
+      }
+        }
+        checkNumber(22);
+        checkNumber(4.2);
+    //------------------------------------------next section--------------------------------------------
 
-let stack = new Stack();
-stack.add(1);
-stack.add(2);
-stack.add(4);
-stack.add(8);
-console.log(stack.items);
+    //program to get the dimensions of an image
 
-stack.remove();
-console.log(stack.items);
+      const img = new Image();
 
-console.log(stack.peek());
+      img.src ="./bgvimage.jpg";
 
-console.log(stack.isEmpty());
+      img.onload = function() {
+      console.log('width ' + img.width);
+      console.log('height '+ img.height);
+      }
 
-console.log(stack.size());
+     //-----------------------------------------next section---------------------------------------------
+     
+     //remove white space from a text
 
-stack.clear();
-console.log(stack.items);
+       let str = " remove white  spaces ";
+       let string = str.split(' ').join('');// we have give space inside the spit to remove sapce
+       console.log(string);
+     //----------------------------------------next section-----------------------------------------------
+       //converting date to number
+     const D1 = new Date();
+     console.log(D1);
+     const result = D1.getTime();
+     console.log(result);
+    //-------------------------------------------next section---------------------------------------------
+      // converting string to base64
+    const sentence = "i was learning javascript";
+    const res  = window.btoa(sentence);
+    console.log(res);
+   //---------------------------------------------next section ------------------------------------------
+     const words = `javascript is interesting
+     javascript used in many ways
+     javascript is fun.`;
+      const final = words.split('/n').join('<br>');
+      console.log(final);              
+
+
 </script>
 
 </body>

@@ -11,9 +11,9 @@
     <p id = "num3"></p>
     <p id = "date"></p>
     <input type= "text" id="rev">
-    <!-- <input type = "text" id = "userinput" placeholder="type something"> 
+    <input type = "text" id = "userinput" placeholder="type something"> 
     another method of changing width according to value <label name="username">ENTER THE TEXT:</label>
-    <input type="text" id="textbox" name="textbox" onkeypress="style.width =((this.value.length + 2) * 4)+'px';"> -->
+    <input type="text" id="textbox" name="textbox" onkeypress="style.width =((this.value.length + 2) * 4)+'px';">
 </head>
 <body>
     
@@ -61,7 +61,7 @@
       const inputField = document.getElementById("userinput")
        inputField.addEventListener('input',function(){
         const inputLength = this.value.length; // here it assigns that length will change according to the value
-         this.style.color = (inputLength * 8) + 'px';
+         this.style.width = (inputLength * 8) + 'px';
        }
     );
     
@@ -124,9 +124,68 @@
         checkLeapYear(year); 
 
     //------------------------------------------next section ------------------------------------------------
+// program to replace all line breaks in a string with <br>
+const string = `I am Learning JavaScript.
+JavaScript is fun.
+JavaScript is easy.`;
 
+const result3 = string.split('\n').join('<br>');
+
+console.log(result3);
+ //-------------------------------------------------next section-------------------------------------------
+
+    function getFileExtension(filename){
+        const extension = filename.split('.').pop();
+        return extension;
+    }
+    const result1 = getFileExtension('form.js');
+    console.log(result1);
+    const result2 = getFileExtension('task.html');
+    console.log(result2);
+    
+//-------------------------------------------------next section-------------------------------------------
+function transformString(input) {
+    let transformed = '';
+
+    for (let i = 0; i < input.length; i++) {
+        let char = input.charAt(i);
+        let charCode = input.charCodeAt(i);
+
+        switch (char) {
+            case 'A':
+                transformed += String.fromCharCode(charCode + 6); // 'A' -> 'G'
+                break;
+            case 'B':
+                transformed += String.fromCharCode(charCode + 5); // 'B' -> 'F'
+                break;
+            case 'D':
+                transformed += String.fromCharCode(charCode - 1); // 'D' -> 'E'
+                break;
+            case 'E':
+                transformed += String.fromCharCode(charCode - 2); // 'E' -> 'C'
+                break;
+            case 'F':
+                transformed += String.fromCharCode(charCode - 4); // 'F' -> 'B'
+                break;
+            default:
+                transformed += char; // For any other character, keep it unchanged
+                break;
+        }
+    }
+
+    return transformed;
+}
+
+// Example usage:
+let input = "ABDEF";
+let output = transformString(input);
+console.log(output);  // Output will be "GFECB"
+
+
+
+//-------------------------------------------------next section-------------------------------------------
 
 </script>
 
 </body>
-</html>
+</head>

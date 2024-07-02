@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Date of Birth:</label>
+    <input type="date" id="date" name="date"><br>
+    <p id="dob" style="color: red;"></p>
+    <button type="button" onclick="checkEligibility()">Submit</button>
+
+    <script>
+        function checkEligibility() {
+            // Get the date of birth from input
+            let dob = new Date(document.getElementById("date").value);
+            
+            // Calculate the age
+            let age = new Date().getFullYear() - dob.getFullYear();
+
+            // Check if age is within 18 to 30 range
+            if (age >= 18 && age <= 30) {
+                document.getElementById("dob").innerHTML = "You are eligible";
+            } else {
+                document.getElementById("dob").innerHTML = "You are not eligible";
+            }
+        }
+        </script>
+</body>
+</html>
