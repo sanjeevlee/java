@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+    <div id ="container"></div>
+    
+    <script>
+        var result;
+        var data = [
+            {
+            "result": {
+          "FirstName":"rajubhai",
+          "userId":"1234",
+          "Email":"rajubhai@112.com",
+          "City":"mumbai",
+          "State":"maharastra",
+          "Country":"India"
+            } 
+        },
+          {
+            "result": {
+            "FirstName":"velusamy",
+          "userId":"4873",
+          "Email":"velusamy123@648.com",
+          "City":"erode",
+          "State":"tamilnadu",
+          "Country":"India"
+            }
+        },
+          {
+            "result": {
+            "FirstName":"Robert",
+          "userId":"3895",
+          "Email":"robert@gmail.com",
+          "City":"NewYork",
+          "State":"tokyo",
+          "Country":"japan"
+            }
+        },
+          {
+            "result": {
+            "FirstName":"varkis",
+          "userId":"3956",
+          "Email":"varkis@ww.com",
+          "City":"pranpur",
+          "State":"odisa",
+          "Country":"india"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"hitesh",
+          "userId":"6738",
+          "Email":"h.prajapati@zzz.com",
+          "City":"melbourne",
+          "State":"alexa",
+          "Country":"Australia"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"guhan",
+          "userId":"0934",
+          "Email":"guhan.2@hyh.com",
+          "City":"theni",
+          "State":"tamilnadu",
+          "Country":"india"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"nishanth",
+          "userId":"6319",
+          "Email":"nisanthu356@rtt.com",
+          "City":"sivagangai",
+          "State":"tamilnadu",
+          "Country":"india"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"kannan",
+          "userId":"6401",
+          "Email":"kannan@ss.com",
+          "City":"perur",
+          "State":"tamilnadu",
+          "Country":"india"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"jessi",
+          "userId":"6402",
+          "Email":"jessi@eij.com",
+          "City":"bangalore",
+          "State":"karnataka",
+          "Country":"india"
+            }
+        },
+        {
+            "result": {
+            "FirstName":"sanjeev",
+          "userId":"7310",
+          "Email":"sanjeevlee@200.com",
+          "City":"coimbatore",
+          "State":"tamilnadu",
+          "Country":"india"
+            }
+        }
+    
+];
+        function display(data){
+        document.getElementById("container").innerHTML = "";
+           
+            
+            var table = "<table border='1'>";
+            table += "<tr><td>Name</td><td colspan='5'>details</td></tr>";
+          table += "<tr><td>FIRST NAME</td><td>USER ID</td><td>EMAIL</td><td>CITY</td><td>STATE</td><td>COUNTRY</td></tr>";
+          for(let i=0; i < data.length; i++){
+          table += "<tr>";
+          table += "<td>" + data[i].result.FirstName + "</td>";
+          table += "<td>" + data[i].result.userId + "</td>";
+          table += "<td>" + data[i].result.Email + "</td>";
+          table += "<td>" + data[i].result.City + "</td>";
+          table += "<td>" + data[i].result.State  + "</td>";
+          table += "<td>" + data[i].result.Country  + "</td>";
+          table += "</tr>";
+          }
+          table += "</table>";
+          document.getElementById("container").innerHTML = table;
+
+        }
+        display(data);
+        
+        
+
+        
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("container");
+    table = table.getElementsByTagName("table");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
+        </script>
+</body>
+</html>
