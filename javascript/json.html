@@ -4,19 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        background-color:rgb(230, 252, 243);
+        
+     }
+      #txt {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 77px;
+            align-items: center;
+            border: 3px solid #ccc;
+            outline: none;
+     } 
+     .button1  {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #000000;
+            color: #fff;
+            cursor: pointer;
+            
+            transform: translate(10%,-5%);
+
+        }
+        .button2{
+         
+           margin-left: 5%;
+           background-color: #616569;
+           border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 8px 20px;
+          }
+          .button3{
+            
+             background-color: #616569;
+             border: none;
+            border-radius: 5px;
+            color: #fff;
+            padding: 8px 20px;
+          }
+
+        .button1:hover {
+            background-color: #0056b3;
+        }
+     h1{
+      text-align: center;
+     }
+     h3{
+        text-align: center;
+     }
+    
+       table {
+        width: 90%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fdfbfb;
+        border: 1px solid #0c0c0c;
+        border: 3px solid #ccc;
+            outline: none;
+    }
+
+       th, td {
+        padding: 10px;
+        text-align: left;
+        border: 2px solid #7b7575;
+        border: 3px solid #ccc;
+            outline: none;
+    }
+
+       th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+      td {
+        color: #181818;
+    }
+  
+
+    </style>
 </head>
 <body>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+   <h1>Details</h1>
+    <input type="text" id="txt" placeholder="Search here" oninput="filterTable()" >
+     <button oninput="filterTable()" class="button1" type="button">Search</button>
+
     <div id ="container"></div>
-    
+    <button onclick="sortTable()" class="button2" type="button">Sort A-Z</button>
+    <button onclick="sorttTable()" class="button3" type="button">Sort Z-A</button>
     <script>
         var result;
         var data = [
-            {
+        {
             "result": {
           "FirstName":"rajubhai",
           "userId":"1234",
-          "Email":"rajubhai@112.com",
+          "email":"rajubhai@112.com",
           "City":"mumbai",
           "State":"maharastra",
           "Country":"India"
@@ -26,7 +117,7 @@
             "result": {
             "FirstName":"velusamy",
           "userId":"4873",
-          "Email":"velusamy123@648.com",
+          "email":"velusamy123@648.com",
           "City":"erode",
           "State":"tamilnadu",
           "Country":"India"
@@ -34,9 +125,9 @@
         },
           {
             "result": {
-            "FirstName":"Robert",
+            "FirstName":"robert",
           "userId":"3895",
-          "Email":"robert@gmail.com",
+          "email":"robert@gmail.com",
           "City":"NewYork",
           "State":"tokyo",
           "Country":"japan"
@@ -46,7 +137,7 @@
             "result": {
             "FirstName":"varkis",
           "userId":"3956",
-          "Email":"varkis@ww.com",
+          "email":"varkis@ww.com",
           "City":"pranpur",
           "State":"odisa",
           "Country":"india"
@@ -56,7 +147,7 @@
             "result": {
             "FirstName":"hitesh",
           "userId":"6738",
-          "Email":"h.prajapati@zzz.com",
+          "email":"h.prajapati@zzz.com",
           "City":"melbourne",
           "State":"alexa",
           "Country":"Australia"
@@ -66,7 +157,7 @@
             "result": {
             "FirstName":"guhan",
           "userId":"0934",
-          "Email":"guhan.2@hyh.com",
+          "email":"guhan.2@hyh.com",
           "City":"theni",
           "State":"tamilnadu",
           "Country":"india"
@@ -76,7 +167,7 @@
             "result": {
             "FirstName":"nishanth",
           "userId":"6319",
-          "Email":"nisanthu356@rtt.com",
+          "email":"nisanthu356@rtt.com",
           "City":"sivagangai",
           "State":"tamilnadu",
           "Country":"india"
@@ -86,7 +177,7 @@
             "result": {
             "FirstName":"kannan",
           "userId":"6401",
-          "Email":"kannan@ss.com",
+          "email":"kannan@ss.com",
           "City":"perur",
           "State":"tamilnadu",
           "Country":"india"
@@ -96,7 +187,7 @@
             "result": {
             "FirstName":"jessi",
           "userId":"6402",
-          "Email":"jessi@eij.com",
+          "email":"jessi@eij.com",
           "City":"bangalore",
           "State":"karnataka",
           "Country":"india"
@@ -106,7 +197,7 @@
             "result": {
             "FirstName":"sanjeev",
           "userId":"7310",
-          "Email":"sanjeevlee@200.com",
+          "email":"sanjeevlee@200.com",
           "City":"coimbatore",
           "State":"tamilnadu",
           "Country":"india"
@@ -119,13 +210,13 @@
            
             
             var table = "<table border='1'>";
-            table += "<tr><td>Name</td><td colspan='5'>details</td></tr>";
-          table += "<tr><td>FIRST NAME</td><td>USER ID</td><td>EMAIL</td><td>CITY</td><td>STATE</td><td>COUNTRY</td></tr>";
+            table += "<tr><td><h4><b>Name</b></h4></td><td colspan='5'><h4>details</h4></td></tr>";
+          table += "<tr><td>Name</td><td>userId</td><td>email</td><td>City</td><td>State</td><td>Country</td></tr></h5>";
           for(let i=0; i < data.length; i++){
           table += "<tr>";
           table += "<td>" + data[i].result.FirstName + "</td>";
           table += "<td>" + data[i].result.userId + "</td>";
-          table += "<td>" + data[i].result.Email + "</td>";
+          table += "<td>" + data[i].result.email + "</td>";
           table += "<td>" + data[i].result.City + "</td>";
           table += "<td>" + data[i].result.State  + "</td>";
           table += "<td>" + data[i].result.Country  + "</td>";
@@ -136,27 +227,52 @@
 
         }
         display(data);
-        
-        
 
-        
-function myFunction() {
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("container");
-    table = table.getElementsByTagName("table");
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
+        function filterTable(){
+          var search = document.getElementById("txt").value.toLowerCase();
+          var filtered = [];
+           for(let i=0 ; i < data.length ; i++){
+            if(data[i].result.FirstName.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+            else if(data[i].result.userId.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+            else if(data[i].result.email.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+            else if(data[i].result.City.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+            else if(data[i].result.State.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+            else if(data[i].result.Country.toLowerCase().includes(search)){
+              filtered.push(data[i]);
+            }
+          
+           }
+          display(filtered);
         }
-    }
-}
 
-        </script>
+      function sortTable() {
+    var sorted = data.slice().sort(function(a, b) { // slice creates the copy of array to compare
+        if (a.result.FirstName.toLowerCase() < b.result.FirstName.toLowerCase()) return -1;
+        if (a.result.FirstName.toLowerCase() > b.result.FirstName.toLowerCase()) return 1;
+        return 0;
+    });
+    display(sorted);
+    }
+
+    function sorttTable() {
+    var sorted = data.slice().sort(function(a, b) {
+        if (a.result.FirstName.toLowerCase() > b.result.FirstName.toLowerCase()) return -1;
+        if (a.result.FirstName.toLowerCase() < b.result.FirstName.toLowerCase()) return 1;
+        return 0;
+    });
+    display(sorted);
+    }
+        
+</script>
 </body>
 </html>
